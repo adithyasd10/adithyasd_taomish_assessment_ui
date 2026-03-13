@@ -1,0 +1,51 @@
+.register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.errM {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px;
+    font-size: small;
+}
+
+label,
+h1 {
+    margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+input {
+    margin: 5px;
+    border-radius: 7px;
+    width: 250px;
+    height: 20px;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.login-btn {
+    width: 60px;
+    height: 25px;
+    background-color: rgb(75, 222, 119);
+    border: none;
+    border-radius: 7px;
+}
+
+.register-btn {
+    width: 70px;
+    height: 25px;
+    background-color: rgb(237, 195, 69);
+    border: none;
+    border-radius: 7px;
+}

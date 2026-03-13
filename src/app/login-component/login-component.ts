@@ -5,6 +5,7 @@ import { LoginService } from '../services/login-service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { LoginUser } from '../Model/LoginUser';
 
 @Component({
   selector: 'app-login-component',
@@ -16,7 +17,7 @@ export class LoginComponent {
 
   errorMessage: string = '';
 
-  user: User = {
+  loginuser: LoginUser = {
     userid: 0,
     username: '',
     password: ''
@@ -33,9 +34,13 @@ export class LoginComponent {
       return;
     }
 
-    return this.service.login(this.user)
+    return this.service.login(this.loginuser)
       .subscribe({
-        next: (resp) => { console.log("User logged in successfully"); },
+        next: (resp) => {
+          console.log("User logged in successfully");
+          this.router.navigate(["/forms"]);
+
+        },
         error: (err) => {
           if (err.status === 404) {
             this.errorMessage = 'User not found';

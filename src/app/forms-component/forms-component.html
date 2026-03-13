@@ -1,0 +1,25 @@
+<button class="add-btn" (click)="toggleForm()">➕ Add</button>
+
+<div class="form-container" [class.show]="showForm">
+
+    <form #formcomponent="ngForm" (ngSubmit)="submitForm(formcomponent)">
+
+        <label for="fname">Name</label><br>
+        <input type="text" name="fname" [(ngModel)]="forms.fname" required #fname="ngModel">
+        <br>
+
+        <label for="fphone">Phone</label><br>
+        <input type="number" name="fphone" [(ngModel)]="forms.fphone" required #fphone="ngModel">
+        <br>
+
+        <label for="femail">Email</label><br>
+        <input type="email" name="femail" [(ngModel)]="forms.femail" required #femail="ngModel">
+        <br>
+
+        <button type="submit">Submit</button>
+
+        <button type="button" (click)="toggleForm()">Close</button>
+
+    </form>
+
+</div>

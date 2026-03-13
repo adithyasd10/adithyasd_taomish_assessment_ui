@@ -1,0 +1,44 @@
+<form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <h1>Register</h1>
+    <div classname="register-form">
+        <label for="username">Username</label><br>
+        <input type="text" id="username" name="username" [(ngModel)]="user.username" placeholder="Enter your username"
+            required #username="ngModel">
+        <div *ngIf="username.invalid && username.touched" style="color: rgb(190, 60, 60);;" class="errM">
+            Username is invalid
+        </div><br>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" [(ngModel)]="user.email" placeholder="Enter your email" required
+            email #email="ngModel">
+        <div *ngIf="email.touched && email.errors?.['required']" style="color: rgb(190, 60, 60);" class="errM">
+            Email is required
+        </div>
+        <div *ngIf="email.touched && email.errors?.['email']" style="color: rgb(190, 60, 60);" class="errM">
+            Please enter a valid email address
+        </div><br>
+        <label for="age">Age</label><br>
+        <input type="number" id="age" name="age" [(ngModel)]="user.age" placeholder="Enter your age" required min="1"
+            #age="ngModel">
+        <div *ngIf="age.touched && age.errors?.['required']" style="color: rgb(190, 60, 60);;" class="errM">
+            Age is required
+        </div>
+        <div *ngIf="age.touched && age.errors?.['min']" style="color: rgb(190, 60, 60);;" class="errM">
+            Age must be greater than 0
+        </div>
+        <br>
+        <label for="password">Password</label><br>
+        <input type="text" name="password" id="password" [(ngModel)]="user.password" placeholder="Enter the password"
+            required minlength="5" #password="ngModel"><br>
+        <div *ngIf="password.invalid && password.touched" style="color: rgb(190, 60, 60);;" class="errM">
+            Invalid password (Password must have minimun 5 length)
+        </div>
+    </div>
+    <div class="btn">
+        <button type="submit" class="register-btn">Register</button>
+        <button type="button" (click)="goToLogin()" class="login-btn">Login</button>
+    </div>
+
+
+    <h2 *ngIf="errorM" style="color: rgb(190, 60, 60);" class="errM">Email id already exist</h2>
+
+</form>
